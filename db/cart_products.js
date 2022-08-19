@@ -118,8 +118,7 @@ async function deleteProductFromCart(id) {
 }
 
 async function attachCartProductsToCart(cartId) {
-  const cart = await getAllCartProductsByCartId(cartId)
-  console.log(cart, "DO I HAVE MY STUFF")
+  const cart = await getAllCartProductsByCartId(cartId);
   const cartsToReturn = [...cart];
   const binds = cart.map((_, index) => `$${index + 1}`).join(', ');
   const cart_ids = cart.map((cart) => cart.id);
