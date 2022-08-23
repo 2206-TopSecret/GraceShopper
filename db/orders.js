@@ -107,10 +107,38 @@ async function updateOrder(id, fields = {}) {
   }
 }
 
+async function attachCartToOrder(carts) {
+  const cartsToReturn = [...carts];
+  const binds = carts.map((_, index) => `$${index + 1}`).join(', ');
+  const cartsIds = carts.map((cart) => cart.id);
+  if (!cartsIds?.length) return [];
+  try {
+    const { rows: orders } = await client.query(
+      `
+          SELECT orders.*
+          FROM carts 
+          JOIN orders ON orders.cart_id = carts.id
+          WHERE orders.cart_id IN (${binds});
+        `,
+      cartsIds
+    );
+    for (const cart of cartsToReturn) {
+      const ordersToAdd = orders.filter((order) => order.cart_id === cart.id);
+      cart.order = ordersToAdd;
+    }
+    console.log('Finished attaching order to cart..orders.js');
+    return orders;
+  } catch (error) {
+    console.error('Error attaching order to cart... orders.js');
+    throw error;
+  }
+}
+
 module.exports = {
   createOrder,
   getOrder,
   getAllOrders,
   getOrderByUserId,
   updateOrder,
+  attachCartToOrder,
 };
