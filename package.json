@@ -9,7 +9,7 @@
     "server:dev": "nodemon app.js",
     "db:build": "node ./db/seedData",
     "start:dev": "nodemon server.js",
-    "start": "node server.js",
+    "start": "react-scripts start",
     "seed:dev": "nodemon ./db/seed.js",
     "seed": "node ./db/seed.js",
     "test": "jest --runInBand",
