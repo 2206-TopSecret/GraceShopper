@@ -4,6 +4,7 @@
   "description": "e-commerce web application",
   "main": "index.js",
   "scripts": {
+    "postinstall": "npm run client:build",
     "client:dev": "react-scripts start",
     "client:build": "react-scripts build",
     "server:dev": "nodemon app.js",
