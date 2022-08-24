@@ -313,6 +313,7 @@ async function rebuildDB() {
     await createInitialCarts();
     await createInitialAddresses();
     // await createInitialOrders();
+    console.log("Finished rebuild DB!")
   } catch (error) {
     console.error('Error during rebuild DB!!');
     throw error;

@@ -4,6 +4,8 @@ const cors = require('cors');
 const morgan = require('morgan');
 const app = express();
 const router = require('./api');
+const path = require('path');
+
 
 
 // MIDDLEWARE AND API ROUTER
@@ -21,6 +23,13 @@ router.use((error, req, res, next) => {
     message: error.message,
   });
 });
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 
 // clear
 

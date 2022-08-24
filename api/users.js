@@ -117,7 +117,6 @@ router.patch("/:userId/:username", async (req, res, next) => {
   const { username } = req.params;
 
   try {
-    console.log(username, "WE MADE IT HERE")
     const { userId } = req.params;
     const user = await getUserById(userId);
     const existingUsername = await getUserByUsername(username);
