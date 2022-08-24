@@ -124,7 +124,6 @@ const Cartpage = ({ allCartProducts, setAllCartProducts }) => {
               event.preventDefault();
               const cartId = localStorage.getItem("cartId");
               const myCart = await attachCartProductsToCart(cartId);
-              console.log(myCart, "MY CART");
               navigate("/checkout");
             }}
           >
@@ -163,7 +162,6 @@ const Cartpage = ({ allCartProducts, setAllCartProducts }) => {
         </div>
         <div className="CartOrderContainer">
           {allCartProducts.map((element, idx) => {
-            console.log(element);
             return (
               <div key={`CartProducts ${idx}`}>
                 <div className="CartProductContainer">

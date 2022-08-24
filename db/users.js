@@ -282,25 +282,3 @@ module.exports = {
   deleteUser,
   changeUserPassword,
 };
-
-/*
-const { client } = require('./index');
-const bycrypt = require("bcrypt");
-
-
-async function createUser() {
-    console.log("Starting to creating user...");
-    try{
-const SALT_COUNT = 10;
-const hashPassword = await bycrypt.hash(password, SALT_COUNT)
-const {
-    rows: [user],
-} = await client.query(`
-    INSERT INTO users()
-        `)
-    }
-}
-
-
-module.exports = {};
-*/

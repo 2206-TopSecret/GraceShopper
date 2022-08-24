@@ -61,7 +61,6 @@ const Accountsettings = () => {
     try{
       if (currentPassword) {
         if (newPassword === verifyPassword) {
-          console.log("WE MADE IT HERE")
           await updatePersonPassword(token, username, oldPassword, id, newPassword)
         }
       }

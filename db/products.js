@@ -168,7 +168,6 @@ async function updateProduct(product_id, fields = {}) {
 
 async function deleteProduct(product_id) {
   try {
-    console.log(product_id, "HERE")
     const {
       rows: [product],
     } = await client.query(`
@@ -176,7 +175,6 @@ async function deleteProduct(product_id) {
         WHERE id=${product_id}
         RETURNING *;
         `);
-        console.log(product, "PRODUCT YO")
     return product;
   } catch (error) {
     console.error('Error Deleting Product! A user currently has this product in their cart! db/products.js');

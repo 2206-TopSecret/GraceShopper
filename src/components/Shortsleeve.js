@@ -41,8 +41,6 @@ const Shortsleeve = ({
   //     searchHoodieProducts(searchProducts);
   //   }, [searchProducts]);
 
-  console.log(productIdArray, "PRODUCT ID ARRAY");
-
   useEffect(() => {
     async function getShortSleeveProducts() {
       try {
