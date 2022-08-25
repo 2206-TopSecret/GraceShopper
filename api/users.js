@@ -71,16 +71,8 @@ router.post("/register", async (req, res, next) => {
       admin_active,
     });
 
-    const token = jwt.sign(
-      {
-        id: user.id,
-        username,
-      },
-      JWT_SECRET,
-      {
-        expiresIn: "1y",
-      }
-    );
+    delete user.password
+    res.send({message: "You have registered!", user})
   } catch ({ name, message }) {
     next({ name, message });
   }
