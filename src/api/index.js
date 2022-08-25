@@ -57,9 +57,6 @@ export async function registerPerson(
     if (result.error) {
       throw result;
     }
-    const token = result.token;
-    localStorage.setItem("token", token);
-    localStorage.setItem("username", username);
     return result;
   } catch (error) {
     throw error;

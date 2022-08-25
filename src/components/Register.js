@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import "../style/Register.css";
 import { registerPerson } from "../api";
@@ -18,8 +18,9 @@ const Register = ({
 }) => {
   const [hidePassword, setHidePassword] = useState(true);
   const [passwordType, setPasswordType] = useState("password");
+  const navigate = useNavigate()
 
-  async function handleSubmit(event) {
+const handleRegister = async (event) => {
     event.preventDefault();
     try {
       const registeredPerson = await registerPerson(
@@ -32,8 +33,9 @@ const Register = ({
       if (registeredPerson) {
         setUsername("");
         setPassword("");
-        navigate("/login");
       }
+      navigate("/login");
+      alert("You have successfully registered to Top Secret Shirts LA!")
     } catch (error) {
       alert(error.message);
     }
@@ -59,7 +61,7 @@ const Register = ({
       <div>
         <h1 className="RegisterHeader">Register</h1>
       </div>
-      <form onSubmit={handleSubmit} className="RegisterForm">
+      <form onSubmit={handleRegister} className="RegisterForm">
         <input
           className="RegisterInput"
           type="text"
@@ -121,7 +123,7 @@ const Register = ({
         />
         <br></br>
         <br></br>
-        <button className="RegisterButton" type="submit">
+        <button className="RegisterButton" type="Submit">
           Register
         </button>
         <br></br>
