@@ -9,6 +9,7 @@ import TopSecretShirtLogo from "./Photo/TopSecretShirtLogo.png";
 import "../style/Checkout.css";
 
 const Checkout = ({ cartSize, setCartSize }) => {
+
   const [myCart, setMyCart] = useState(null);
   const token = localStorage.getItem("token");
   let orderNumber = Number(Math.random().toString().substring(2));

@@ -31,6 +31,7 @@ const Accountsettings = () => {
       await updatePersonUsername(token, username, newUsername, id);
       localStorage.setItem("username", newUsername);
       setUsername(newUsername)
+      alert("You have updated your username!")
     } catch (error) {
       throw error;
     }
@@ -46,6 +47,7 @@ const Accountsettings = () => {
       await updatePersonEmail(token, email, newEmail, id);
       localStorage.setItem("email", newEmail);
       setEmail(newEmail)
+      alert("You have updated your email!")
     } catch (error) {
       throw error;
     }
@@ -64,6 +66,7 @@ const Accountsettings = () => {
           await updatePersonPassword(token, username, oldPassword, id, newPassword)
         }
       }
+      alert("You have updated your password!")
     } catch (error) {
       throw error;
     }

@@ -160,7 +160,7 @@ export async function updatePersonPassword(
   newPassword
 ) {
   try {
-    const response = await fetch(`${BASE}/api/users/updatePassword/${username}`, {
+    const response = await fetch(`${BASE}/api/users/update/person/password/${username}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -173,6 +173,7 @@ export async function updatePersonPassword(
         newPassword: newPassword
       }),
     });
+    
     const result = await response.json();
     return result;
   } catch (error) {

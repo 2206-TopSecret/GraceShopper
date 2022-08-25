@@ -30,7 +30,6 @@ router.get("/:userId/:username/:password", async (req, res) => {
   const {username, password} = req.params
 
   const user = await getUser({username, password});
-
   res.send({
     user
   })
@@ -169,14 +168,14 @@ router.patch("/:userId/:email", async (req, res, next) => {
   }
 });
 
-router.patch("/updatePassword/:username", async (req, res, next) => {
+router.patch("/update/person/password/:username", async (req, res, next) => {
   const { username, password, id, newPassword } = req.body
   const SALT_COUNT = 10;
   const newHashedPassword = await bcrypt.hash(newPassword, SALT_COUNT);
 
   try {
     const updatedPassword = await changeUserPassword(username, password, id, {password: newHashedPassword})
-    res.send(updatedPassword)
+    res.send({message: "You updated your password!", updatedPassword: updatedPassword})
   } catch (error) {
     next (error)
   }
