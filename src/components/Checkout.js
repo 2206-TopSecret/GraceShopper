@@ -8,7 +8,7 @@ import HoodieImage from "./Photo/HoodieImage.jpg";
 import TopSecretShirtLogo from "./Photo/TopSecretShirtLogo.png";
 import "../style/Checkout.css";
 
-const Checkout = () => {
+const Checkout = ({ cartSize, setCartSize }) => {
   const [myCart, setMyCart] = useState(null);
   const token = localStorage.getItem("token");
   let orderNumber = Number(Math.random().toString().substring(2));
@@ -81,6 +81,7 @@ const Checkout = () => {
       <form
         onSubmit={async (event) => {
           event.preventDefault();
+          setCartSize(0);
           localStorage.removeItem('cartId')
           localStorage.removeItem('productIdArray')
           localStorage.setItem('purchased', true)
