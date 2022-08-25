@@ -22,7 +22,9 @@ const Register = ({
 
 const handleRegister = async (event) => {
     event.preventDefault();
+    console.log(username, password, email, firstName, lastName, "BEFORE TRY")
     try {
+      console.log("INSIDE OF TRY")
       const registeredPerson = await registerPerson(
         username,
         password,
@@ -30,6 +32,7 @@ const handleRegister = async (event) => {
         firstName,
         lastName
       );
+      console.log(registeredPerson, "AFTER API CALL")
       if (registeredPerson) {
         setUsername("");
         setPassword("");
