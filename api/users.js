@@ -16,7 +16,6 @@ const {
   deleteUser,
   changeUserPassword,
 } = require("../db");
-const { requireUser } = require("./utils");
 
 router.get("/", async (req, res) => {
   const users = await getAllUsers();
@@ -79,7 +78,6 @@ router.post("/register", async (req, res, next) => {
 
 router.post("/login", async (req, res, next) => {
   const { username, password } = req.body;
-  
   if (!username || !password) {
     next({
       name: "MissingCredentialsError",
@@ -209,7 +207,7 @@ router.patch("/admin/updateUser/:userId", async (req, res, next) => {
   }
 });
 
-router.delete("/:userId", async (req, res, next) => {
+router.delete("/delete/:userId", async (req, res, next) => {
   const { userId } = req.params;
   try {
       const deletedUser = await deleteUser(userId);

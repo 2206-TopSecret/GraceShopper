@@ -1,5 +1,5 @@
-const BASE = "https://top-secret-shirts-la.herokuapp.com";
-// const BASE = "http://localhost:4000";
+// const BASE = "https://top-secret-shirts-la.herokuapp.com";
+const BASE = "http://localhost:4000";
 // LOCAL TESTING BASE
 
 // USERS API CALLS BELOW
@@ -216,7 +216,7 @@ export async function adminUpdatePerson(
 
 export async function deleteUser(userId) {
   try {
-    const response = await fetch(`${BASE}/api/users/${userId}`, {
+    const response = await fetch(`${BASE}/api/users/delete/${userId}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
