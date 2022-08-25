@@ -1,5 +1,5 @@
-// const BASE = "https://top-secret-shirts-la.herokuapp.com";
-const BASE = "http://localhost:4000";
+const BASE = "https://top-secret-shirts-la.herokuapp.com";
+// const BASE = "http://localhost:4000";
 // LOCAL TESTING BASE
 
 // USERS API CALLS BELOW
