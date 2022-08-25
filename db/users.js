@@ -77,6 +77,7 @@ async function getUser({ username, password }) {
 }
 
 async function changeUserPassword(username, password, id, fields = {}) {
+  console.log(id, "INSIDE OF DB START")
   const user = await getUserByUsername(username);
   const hashedPassword = user.password;
   const isValid = await bcrypt.compare(password, hashedPassword)
@@ -100,6 +101,7 @@ async function changeUserPassword(username, password, id, fields = {}) {
     return user;
   } 
     } catch (error) {
+      console.error("Error Creating User! users.js");
       throw error
     }
     }

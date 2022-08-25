@@ -169,7 +169,7 @@ const AnimatedRoutes = ({
             />
           }
         />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/checkout" element={<Checkout cartSize={cartSize} setCartSize={setCartSize}/>} />
         <Route path="/purchase" element={<Purchase />} />
       </Routes>
     </AnimatePresence>
